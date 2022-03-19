@@ -7,3 +7,38 @@ cc23f226cf
 http://bt.hn234.cn:8899
 link
 #@Link123
+
+
+---------- V2Ray 配置信息 -------------
+
+ 地址 (Address) = 173.254.201.205
+
+ 端口 (Port) = 51253
+
+ 用户ID (User ID / UUID) = d4e1d863-146c-467f-802b-912e6d32d174
+
+ 额外ID (Alter Id) = 0
+
+ 传输协议 (Network) = tcp
+
+ 伪装类型 (header type) = none
+
+ 备注: 广告拦截已开启..
+
+
+---------- Shadowsocks 配置信息 -------------
+
+ 服务器地址 = 173.254.201.205
+
+ 服务器端口 = 45579
+
+ 密码 = link@123
+
+ 加密协议 = aes-128-gcm
+
+ SS 链接 = ss://YWVzLTEyOC1nY206bGlua0AxMjNAMTczLjI1NC4yMDEuMjA1OjQ1NTc5#233v2.com_ss_173.254.201.205
+
+ 备注:  Shadowsocks Win 4.0.6  客户端可能无法识别该 SS 链接
+firewall-cmd --add-port=51253/tcp --permanent
+firewall-cmd --add-port=45579/tcp --permanent
+firewall-cmd --reload
