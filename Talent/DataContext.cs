@@ -73,7 +73,7 @@ namespace Talent
     {
         public DataContext CreateDbContext(string[] args)
         {
-            return new DataContext("173.254.201.205;Database=Talent;Username=system;Password=Aishi@1985;Port=5432;Pooling=true;", DBTypeEnum.PgSql);
+            return new DataContext("Host=173.254.201.205;Database=Talent;Username=system;Password=Aishi@1985;Port=5432;Pooling=true;", DBTypeEnum.PgSql);
         }
     }
 

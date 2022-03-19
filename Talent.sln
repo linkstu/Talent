@@ -1,23 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talent", "Talent\Talent.csproj", "{4479f815-7fc8-4b89-bb84-274d257981eb}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Talent", "Talent\Talent.csproj", "{4479F815-7FC8-4B89-BB84-274D257981EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talent.Test", "Talent.Test\Talent.Test.csproj", "{4776647c-9457-4455-b1e3-09c8da73d559}"
-EndProject
-
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4479f815-7fc8-4b89-bb84-274d257981eb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4479f815-7fc8-4b89-bb84-274d257981eb}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4479f815-7fc8-4b89-bb84-274d257981eb}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4479f815-7fc8-4b89-bb84-274d257981eb}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4479F815-7FC8-4B89-BB84-274D257981EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4479F815-7FC8-4B89-BB84-274D257981EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4479F815-7FC8-4B89-BB84-274D257981EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4479F815-7FC8-4B89-BB84-274D257981EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
