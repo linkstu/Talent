@@ -18,26 +18,36 @@ namespace Talent.Models
         [Display(Name = "服务类别"), Required]
         public EnumServiceType Type { get; set; }
 
+        [Display(Name = "营业执照"), Required]
+        public Guid LicenseID { get; set; }
+        public FileAttachment License { get; set; }
+
+        [Display(Name = "组织机构代码"), StringLength(100), Required]
+        public string Certificate { get; set; }
+
+        [Display(Name = "注册/成立时间"), Required]
+        public DateTime DateOfFound { get; set; }
+
+        [Display(Name = "联系电话"), StringLength(20), Required]
+        public string Telephone { get; set; }
+
         [Display(Name = "单位地址"), StringLength(200), Required]
         public string Address { get; set; }
 
-        [Display(Name = "负责人"), StringLength(20), Required]
-        public string InCharge { get; set; }
+        [Display(Name = "法人姓名"), StringLength(20), Required]
+        public string Legal { get; set; }
 
-        [Display(Name = "负责人电话"), StringLength(20), Required]
-        public string InChargeTel { get; set; }
+        [Display(Name = "法人手机"), StringLength(20), Required]
+        public string LegalMobile { get; set; }
 
-        [Display(Name = "联系人"), StringLength(20), Required]
-        public string Contacts { get; set; }
+        [Display(Name = "管理员姓名"), StringLength(20), Required]
+        public string Manager { get; set; }
 
-        [Display(Name = "联系人电话"), StringLength(20), Required]
-        public string ContactTel { get; set; }
-
-        [Display(Name ="登录账号"), StringLength(20, MinimumLength =6), Required]
-        public string Account { get; set; }
+        [Display(Name ="管理员手机"), StringLength(20), Required]
+        public string ManagerMobile { get; set; }
 
         [Display(Name ="登录密码"), StringLength(50), Required]
-        public string Password { get; set; }
+        public string ManagerPassword { get; set; }
 
         [Display(Name ="单位介绍"), StringLength(2000), Required]
         public string Description { get; set; }
@@ -49,11 +59,20 @@ namespace Talent.Models
         [Display(Name = "状态"), Required]
         public EnumUnitStatus Status { get; set; }
 
-        /*
-         * 修改日期，修改人，创建日期
-         * 从基类中调取
-         * UpdateTime,UpdateBy,CreateTime
-         */
+        [Display(Name = "注册日期"), Required]
+        public DateTime DateOfRegister { get; set; }
+
+        [Display(Name = "受理部门意见")]
+        public string AcceptanceComments { get; set; }
+
+        [Display(Name = "受理日期")]
+        public DateTime? DateOfAcceptance { get; set; }
+
+        [Display(Name = "审核部门意见")]
+        public string VerifyComments { get; set; }
+
+        [Display(Name = "审核日期")]
+        public DateTime? DateOfVerify { get; set; }
     }
 
     /// <summary>
