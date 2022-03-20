@@ -10,7 +10,7 @@ namespace Talent.Models
     /// 人才单位
     /// </summary>
     [Table("TalentUnits")]
-    public class TalentUnit
+    public class TalentUnit : BasePoco
     {
         [Display(Name = "单位名称"), StringLength(100), Required]
         public string Name { get; set; }
