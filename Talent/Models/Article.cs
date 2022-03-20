@@ -6,25 +6,6 @@ using WalkingTec.Mvvm.Core;
 namespace Talent.Models
 {
     /// <summary>
-    /// 内容类型
-    /// </summary>
-    [Table("ArticleCategories")]
-    public class ArticleCategory : BasePoco
-    {
-        [Display(Name ="类型"), StringLength(50), Required]
-        public string Category { get; set; }
-
-        [Display(Name ="别名"), StringLength(20), Required]
-        public string Alias { get; set; }
-
-        [Display(Name ="启用"), Required]
-        public bool IsEnabled { get; set; }
-
-        [Display(Name ="排序"), Required]
-        public int SortIndex { get; set; }
-    }
-
-    /// <summary>
     /// 网站内容
     /// </summary>
     [Table("Articles")]
