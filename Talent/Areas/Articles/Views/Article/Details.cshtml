@@ -1,0 +1,20 @@
+﻿@model Talent.Articles.ViewModels.ArticleVMs.ArticleVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:display field="Entity.Subject" />
+        <wt:display field="Entity.Author" />
+        <wt:display field="Entity.ReadCount" />
+        <wt:display field="Entity.Category.Alias" />
+        <wt:display field="Entity.DateOfPublish" />
+        <wt:display field="Entity.IsPublished" />
+    </wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        <wt:display field="Entity.Source" />
+        <wt:richtextbox field="Entity.Context"  height="300"/>
+    </wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

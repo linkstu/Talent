@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Talent.Models;
 using WalkingTec.Mvvm.Core;
 
 namespace Talent
@@ -9,7 +10,8 @@ namespace Talent
     public class DataContext : FrameworkContext
     {
         public DbSet<FrameworkUser> FrameworkUsers { get; set; }
-
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<ArticleCategory> ArticleCategorys { get; set; }
 
         public DataContext(CS cs)
              : base(cs)

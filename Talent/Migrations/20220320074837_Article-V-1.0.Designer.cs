@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Talent;
@@ -11,9 +12,10 @@ using Talent;
 namespace Talent.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220320074837_Article-V-1.0")]
+    partial class ArticleV10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,7 +78,7 @@ namespace Talent.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("Articles", (string)null);
+                    b.ToTable("Articles");
                 });
 
             modelBuilder.Entity("Talent.Models.ArticleCategory", b =>
@@ -117,7 +119,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("ArticleCategories", (string)null);
+                    b.ToTable("ArticleCategories");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.ActionLog", b =>
@@ -174,7 +176,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("ActionLogs", (string)null);
+                    b.ToTable("ActionLogs");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.DataPrivilege", b =>
@@ -216,7 +218,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("DataPrivileges", (string)null);
+                    b.ToTable("DataPrivileges");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FileAttachment", b =>
@@ -257,7 +259,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("FileAttachments", (string)null);
+                    b.ToTable("FileAttachments");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkGroup", b =>
@@ -298,7 +300,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("FrameworkGroups", (string)null);
+                    b.ToTable("FrameworkGroups");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkMenu", b =>
@@ -361,7 +363,7 @@ namespace Talent.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("FrameworkMenus", (string)null);
+                    b.ToTable("FrameworkMenus");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkRole", b =>
@@ -402,7 +404,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("FrameworkRoles", (string)null);
+                    b.ToTable("FrameworkRoles");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkUser", b =>
@@ -474,7 +476,7 @@ namespace Talent.Migrations
 
                     b.HasIndex("PhotoId");
 
-                    b.ToTable("FrameworkUsers", (string)null);
+                    b.ToTable("FrameworkUsers");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkUserGroup", b =>
@@ -507,7 +509,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("FrameworkUserGroups", (string)null);
+                    b.ToTable("FrameworkUserGroups");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkUserRole", b =>
@@ -540,7 +542,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("FrameworkUserRoles", (string)null);
+                    b.ToTable("FrameworkUserRoles");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FunctionPrivilege", b =>
@@ -577,7 +579,7 @@ namespace Talent.Migrations
 
                     b.HasIndex("MenuItemId");
 
-                    b.ToTable("FunctionPrivileges", (string)null);
+                    b.ToTable("FunctionPrivileges");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.PersistedGrant", b =>
@@ -605,7 +607,7 @@ namespace Talent.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("PersistedGrants", (string)null);
+                    b.ToTable("PersistedGrants");
                 });
 
             modelBuilder.Entity("Talent.Models.Article", b =>

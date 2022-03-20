@@ -1,0 +1,10 @@
+﻿@model Talent.Articles.ViewModels.ArticleCategoryVMs.ArticleCategoryListVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Four">
+<wt:textbox field="Searcher.Category" />
+<wt:combobox field="Searcher.IsEnabled" empty-text="@Localizer["Sys.All"]" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/Articles/ArticleCategory/Search"/>
