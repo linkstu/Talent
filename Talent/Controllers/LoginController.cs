@@ -17,7 +17,6 @@ namespace Talent.Controllers
     [AllRights]
     public class LoginController : BaseController
     {
-
         [Public]
         [ActionDescription("Login")]
         public IActionResult Login()
@@ -27,8 +26,9 @@ namespace Talent.Controllers
             if (Wtm.ConfigInfo.IsQuickDebug == true)
             {
                 vm.ITCode = "admin";
-                vm.Password = "000000";
+                vm.Password = "";
             }
+
             return View(vm);
         }
 
@@ -54,7 +54,7 @@ namespace Talent.Controllers
             else
             {
                 Wtm.LoginUserInfo = user;
-                string url = string.Empty;
+                string url;
                 if (!string.IsNullOrEmpty(vm.Redirect))
                 {
                     url = vm.Redirect;
@@ -80,34 +80,34 @@ namespace Talent.Controllers
             }
         }
 
-        [Public]
-        public IActionResult Reg()
-        {
-            var vm = Wtm.CreateVM<RegVM>();
-            return PartialView(vm);
-        }
+        //[Public]
+        //public IActionResult Reg()
+        //{
+        //    var vm = Wtm.CreateVM<RegVM>();
+        //    return PartialView(vm);
+        //}
 
-        [Public]
-        [HttpPost]
-        public IActionResult Reg(RegVM vm)
-        {
-            if (!ModelState.IsValid)
-            {
-                return PartialView(vm);
-            }
-            else
-            {
-                var rv = vm.DoReg();
-                if (rv == true)
-                {
-                    return FFResult().CloseDialog().Message(Localizer["Reg.Success"]);
-                }
-                else
-                {
-                    return PartialView(vm);
-                }
-            }
-        }
+        //[Public]
+        //[HttpPost]
+        //public IActionResult Reg(RegVM vm)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return PartialView(vm);
+        //    }
+        //    else
+        //    {
+        //        var rv = vm.DoReg();
+        //        if (rv == true)
+        //        {
+        //            return FFResult().CloseDialog().Message(Localizer["Reg.Success"]);
+        //        }
+        //        else
+        //        {
+        //            return PartialView(vm);
+        //        }
+        //    }
+        //}
 
         [AllRights]
         [ActionDescription("Logout")]

@@ -35,7 +35,7 @@ namespace Talent
             bool emptydb = false;
             try
             {
-                emptydb = Set<FrameworkUser>().Count() == 0 && Set<FrameworkUserRole>().Count() == 0;
+                emptydb = !Set<FrameworkUser>().Any() && !Set<FrameworkUserRole>().Any();
             }
             catch { }
             if (state == true || emptydb == true)

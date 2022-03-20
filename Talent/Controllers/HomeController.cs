@@ -22,7 +22,7 @@ namespace Talent.Controllers
         [AllRights]
         public IActionResult Index()
         {
-            ViewData["title"] = "WTM";
+            ViewData["title"] = "益阳高层次人才";
             return View();
         }
 
