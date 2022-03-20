@@ -6,17 +6,6 @@ using WalkingTec.Mvvm.Core;
 namespace Talent.Models
 {
     /// <summary>
-    /// 服务性质
-    /// </summary>
-    public enum EnumServiceType
-    {
-        [Display(Name ="计价")]
-        ByValuation,
-        [Display(Name = "计次")]
-        ByCount
-    }
-
-    /// <summary>
     /// 服务类别
     /// </summary>
     [Table("ServiceCategories")]
