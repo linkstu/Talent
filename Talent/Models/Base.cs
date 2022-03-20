@@ -9,22 +9,6 @@ namespace Talent.Models
      */
 
     /// <summary>
-    /// 行业类别
-    /// </summary>
-    [Table("IndustryCategories")]
-    public class IndustryCategory : BasePoco
-    {
-        [Display(Name ="类别"), StringLength(20), Required]
-        public string Category { get; set; }
-
-        [Display(Name = "启用"), Required]
-        public bool IsEnabled { get; set; }
-
-        [Display(Name ="排序"), Required]
-        public int SortIndex { get; set; }
-    }
-
-    /// <summary>
     /// 导航图片
     /// </summary>
     [Table("Banners")]
@@ -48,6 +32,22 @@ namespace Talent.Models
     }
 
     /// <summary>
+    /// 行业类别
+    /// </summary>
+    [Table("IndustryCategories")]
+    public class IndustryCategory : BasePoco
+    {
+        [Display(Name = "类别"), StringLength(20), Required]
+        public string Category { get; set; }
+
+        [Display(Name = "启用"), Required]
+        public bool IsEnabled { get; set; }
+
+        [Display(Name = "排序"), Required]
+        public int SortIndex { get; set; }
+    }
+
+    /// <summary>
     /// 服务类别
     /// </summary>
     [Table("ServiceCategories")]
@@ -68,6 +68,25 @@ namespace Talent.Models
 
         [Display(Name = "描述"), StringLength(500)]
         public string Description { get; set; }
+
+        [Display(Name = "启用"), Required]
+        public bool IsEnabled { get; set; }
+
+        [Display(Name = "排序"), Required]
+        public int SortIndex { get; set; }
+    }
+
+    /// <summary>
+    /// 内容类型
+    /// </summary>
+    [Table("ArticleCategories")]
+    public class ArticleCategory : BasePoco
+    {
+        [Display(Name = "类型"), StringLength(50), Required]
+        public string Category { get; set; }
+
+        [Display(Name = "别名"), StringLength(20), Required]
+        public string Alias { get; set; }
 
         [Display(Name = "启用"), Required]
         public bool IsEnabled { get; set; }
