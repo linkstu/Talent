@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using WalkingTec.Mvvm.Core;
-using WalkingTec.Mvvm.Core.Extensions;
-using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 using Talent.Models;
+using WalkingTec.Mvvm.Core;
 
 
-namespace Talent.Articles.ViewModels.ArticleCategoryVMs
+namespace Talent.Base.ViewModels.ArticleCategoryVMs
 {
     public partial class ArticleCategoryListVM : BasePagedListVM<ArticleCategory_View, ArticleCategorySearcher>
     {
@@ -17,9 +12,11 @@ namespace Talent.Articles.ViewModels.ArticleCategoryVMs
         {
             return new List<GridAction>
             {
-                this.MakeStandardAction("ArticleCategory", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"Articles", dialogWidth: 800),
-                this.MakeStandardAction("ArticleCategory", GridActionStandardTypesEnum.Edit, Localizer["Sys.Edit"], "Articles", dialogWidth: 800),
-                this.MakeStandardAction("ArticleCategory", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "Articles", dialogWidth: 800),
+                this.MakeStandardAction("ArticleCategory", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"Base", dialogWidth: 800),
+                this.MakeStandardAction("ArticleCategory", GridActionStandardTypesEnum.Edit, Localizer["Sys.Edit"], "Base", dialogWidth: 800),
+                this.MakeStandardAction("ArticleCategory", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "Base", dialogWidth: 800)
+                    .SetShowDialog(false).SetPromptMessage("当前分类下的所有内容将被删除<br />确实要删除当前分类？"),
+                this.MakeStandardAction("ArticleCategory", GridActionStandardTypesEnum.Details, Localizer["Sys.Details"], "Base", dialogWidth: 800),
             };
         }
 
@@ -28,9 +25,9 @@ namespace Talent.Articles.ViewModels.ArticleCategoryVMs
         {
             return new List<GridColumn<ArticleCategory_View>>{
                 this.MakeGridHeader(x => x.Category),
-                this.MakeGridHeader(x => x.Alias),
-                this.MakeGridHeader(x => x.IsEnabled),
-                this.MakeGridHeader(x => x.SortIndex),
+                this.MakeGridHeader(x => x.Alias, 160),
+                this.MakeGridHeader(x => x.IsEnabled, 80),
+                this.MakeGridHeader(x => x.SortIndex, 80),
                 this.MakeGridHeaderAction(width: 200)
             };
         }
@@ -38,8 +35,6 @@ namespace Talent.Articles.ViewModels.ArticleCategoryVMs
         public override IOrderedQueryable<ArticleCategory_View> GetSearchQuery()
         {
             var query = DC.Set<ArticleCategory>()
-                .CheckContain(Searcher.Category, x=>x.Category)
-                .CheckEqual(Searcher.IsEnabled, x=>x.IsEnabled)
                 .Select(x => new ArticleCategory_View
                 {
 				    ID = x.ID,

@@ -21,11 +21,12 @@ namespace Talent.Articles.ViewModels.ArticleVMs
 
         protected override void InitVM()
         {
-            AllCategorys = DC.Set<ArticleCategory>().GetSelectListItems(Wtm, y => y.Alias);
+            AllCategorys = DC.Set<ArticleCategory>().Where(y => y.IsEnabled).GetSelectListItems(Wtm, y => y.Alias);
 
             if(Entity.ID == default)
             {
                 Entity.IsPublished = true;
+                Entity.DateOfPublish = DateTime.Today;
             }
         }
 

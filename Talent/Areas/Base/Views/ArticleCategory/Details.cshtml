@@ -1,0 +1,14 @@
+﻿@model Talent.Base.ViewModels.ArticleCategoryVMs.ArticleCategoryVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        <wt:display field="Entity.Category" />
+        <wt:display field="Entity.Alias" />
+        <wt:display field="Entity.IsEnabled" />
+        <wt:display field="Entity.SortIndex" />
+    </wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

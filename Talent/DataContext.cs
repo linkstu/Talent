@@ -9,9 +9,15 @@ namespace Talent
 {
     public class DataContext : FrameworkContext
     {
-        public DbSet<FrameworkUser> FrameworkUsers { get; set; }
+        #region 基础
         public DbSet<Article> Articles { get; set; }
+        #endregion
+
+        #region 网站内容
         public DbSet<ArticleCategory> ArticleCategorys { get; set; }
+        #endregion
+
+        public DbSet<FrameworkUser> FrameworkUsers { get; set; }
 
         public DataContext(CS cs)
              : base(cs)
@@ -75,6 +81,7 @@ namespace Talent
     {
         public DataContext CreateDbContext(string[] args)
         {
+            //return new DataContext("Host=localhost;Database=Talent;Username=postgres;Password=link;Port=5433;Pooling=true;", DBTypeEnum.PgSql);
             return new DataContext("Host=173.254.201.205;Database=Talent;Username=system;Password=Aishi@1985;Port=5432;Pooling=true;", DBTypeEnum.PgSql);
         }
     }

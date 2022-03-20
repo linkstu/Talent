@@ -25,7 +25,7 @@ namespace Talent.Articles.ViewModels.ArticleVMs
 
         protected override void InitVM()
         {
-            AllCategorys = DC.Set<ArticleCategory>().GetSelectListItems(Wtm, y => y.Alias);
+            AllCategorys = DC.Set<ArticleCategory>().Where(y => y.IsEnabled).GetSelectListItems(Wtm, y => y.Alias);
         }
 
     }

@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using WalkingTec.Mvvm.Core;
-using WalkingTec.Mvvm.Mvc;
-using WalkingTec.Mvvm.Core.Extensions;
 using Talent.Articles.ViewModels.ArticleVMs;
+using WalkingTec.Mvvm.Core;
+using WalkingTec.Mvvm.Core.Extensions;
+using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.Mvc.Binders;
 
 namespace Talent.Controllers
 {
     [Area("Articles")]
-    [ActionDescription("新闻管理")]
+    [ActionDescription("内容管理")]
     public partial class ArticleController : BaseController
     {
         #region Search
@@ -111,22 +110,14 @@ namespace Talent.Controllers
         public ActionResult Delete(string id)
         {
             var vm = Wtm.CreateVM<ArticleVM>(id);
-            return PartialView(vm);
-        }
-
-        [ActionDescription("Sys.Delete")]
-        [HttpPost]
-        public ActionResult Delete(string id, IFormCollection nouse)
-        {
-            var vm = Wtm.CreateVM<ArticleVM>(id);
             vm.DoDelete();
             if (!ModelState.IsValid)
             {
-                return PartialView(vm);
+                return FFResult().Alert(vm.MSD.GetFirstError());
             }
             else
             {
-                return FFResult().CloseDialog().RefreshGrid();
+                return FFResult().RefreshGrid();
             }
         }
         #endregion
@@ -163,13 +154,5 @@ namespace Talent.Controllers
             }
         }
         #endregion
-
-        [ActionDescription("Sys.Export")]
-        [HttpPost]
-        public IActionResult ExportExcel(ArticleListVM vm)
-        {
-            return vm.GetExportData();
-        }
-
     }
 }

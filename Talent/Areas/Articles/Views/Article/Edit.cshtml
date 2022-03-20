@@ -2,18 +2,15 @@
 @inject IStringLocalizer<Program> Localizer;
 
 <wt:form vm="@Model">
-<wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:textbox field="Entity.Subject" />
-<wt:textbox field="Entity.Author" />
-<wt:textbox disabled field="Entity.ReadCount" />
-<wt:combobox field="Entity.CategoryID" items="AllCategorys"/>
-<wt:datetime field="Entity.DateOfPublish" />
-<wt:switch field="Entity.IsPublished" />
-</wt:row>
-<wt:row items-per-row="ItemsPerRowEnum.One">
-<wt:textbox field="Entity.Source" />
-<wt:richtextbox field="Entity.Context" height="260" /></wt:richtextbox>
-</wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        <wt:textbox field="Entity.Subject" />
+        <wt:combobox field="Entity.CategoryID" items="AllCategorys" />
+        <wt:textbox field="Entity.Author" />
+        <wt:textbox field="Entity.Source" />
+        <wt:switch field="Entity.IsPublished" />
+        <wt:datetime field="Entity.DateOfPublish" />
+        <wt:richtextbox field="Entity.Context" height="320"></wt:richtextbox>
+    </wt:row>
     <wt:hidden field="Entity.ID" />
     <wt:row align="AlignEnum.Right">
         <wt:submitbutton />

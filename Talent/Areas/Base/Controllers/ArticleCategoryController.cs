@@ -4,12 +4,12 @@ using System;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.Core.Extensions;
-using Talent.Articles.ViewModels.ArticleCategoryVMs;
+using Talent.Base.ViewModels.ArticleCategoryVMs;
 
 namespace Talent.Controllers
 {
-    [Area("Articles")]
-    [ActionDescription("新闻类别")]
+    [Area("Base")]
+    [ActionDescription("内容类型")]
     public partial class ArticleCategoryController : BaseController
     {
         #region Search
@@ -108,23 +108,24 @@ namespace Talent.Controllers
         public ActionResult Delete(string id)
         {
             var vm = Wtm.CreateVM<ArticleCategoryVM>(id);
-            return PartialView(vm);
-        }
-
-        [ActionDescription("Sys.Delete")]
-        [HttpPost]
-        public ActionResult Delete(string id, IFormCollection nouse)
-        {
-            var vm = Wtm.CreateVM<ArticleCategoryVM>(id);
             vm.DoDelete();
             if (!ModelState.IsValid)
             {
-                return PartialView(vm);
+                return FFResult().Alert(vm.MSD.GetFirstError());
             }
             else
             {
-                return FFResult().CloseDialog().RefreshGrid();
+                return FFResult().RefreshGrid();
             }
+        }
+        #endregion
+
+        #region Details
+        [ActionDescription("Sys.Details")]
+        public ActionResult Details(string id)
+        {
+            var vm = Wtm.CreateVM<ArticleCategoryVM>(id);
+            return PartialView(vm);
         }
         #endregion
     }

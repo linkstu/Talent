@@ -8,7 +8,7 @@ using WalkingTec.Mvvm.Core.Extensions;
 using Talent.Models;
 
 
-namespace Talent.Articles.ViewModels.ArticleCategoryVMs
+namespace Talent.Base.ViewModels.ArticleCategoryVMs
 {
     public partial class ArticleCategoryVM : BaseCRUDVM<ArticleCategory>
     {
@@ -19,9 +19,10 @@ namespace Talent.Articles.ViewModels.ArticleCategoryVMs
 
         protected override void InitVM()
         {
-            if (Entity.ID == default)
+            if(Entity.ID == default)
             {
                 Entity.IsEnabled = true;
+                Entity.SortIndex = (DC.Set<ArticleCategory>().AsEnumerable().MaxBy(a => a.SortIndex)?.SortIndex ?? 0) + 1;
             }
         }
 

@@ -8,14 +8,10 @@ using WalkingTec.Mvvm.Core.Extensions;
 using Talent.Models;
 
 
-namespace Talent.Articles.ViewModels.ArticleCategoryVMs
+namespace Talent.Base.ViewModels.ArticleCategoryVMs
 {
     public partial class ArticleCategorySearcher : BaseSearcher
     {
-        [Display(Name = "类型")]
-        public String Category { get; set; }
-        [Display(Name = "启用")]
-        public Boolean? IsEnabled { get; set; }
 
         protected override void InitVM()
         {
