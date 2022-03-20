@@ -5,6 +5,7 @@ using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.Core.Extensions;
 using Talent.Articles.ViewModels.ArticleVMs;
+using WalkingTec.Mvvm.Mvc.Binders;
 
 namespace Talent.Controllers
 {
@@ -46,6 +47,7 @@ namespace Talent.Controllers
             return PartialView(vm);
         }
 
+        [StringNeedLTGT]
         [HttpPost]
         [ActionDescription("Sys.Create")]
         public ActionResult Create(ArticleVM vm)
@@ -80,6 +82,7 @@ namespace Talent.Controllers
 
         [ActionDescription("Sys.Edit")]
         [HttpPost]
+        [StringNeedLTGT]
         [ValidateFormItemOnly]
         public ActionResult Edit(ArticleVM vm)
         {
