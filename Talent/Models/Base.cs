@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using WalkingTec.Mvvm.Core;
 
@@ -21,6 +22,7 @@ namespace Talent.Models
         public string Url { get; set; }
 
         [Display(Name = "图片"), Required]
+        public Guid ImageID { get; set; }
         public FileAttachment Image { get; set; }
 
         [Display(Name = "排序"), Required]
@@ -57,7 +59,7 @@ namespace Talent.Models
         public string Name { get; set; }
 
 
-        [Display(Name = "服务性质"), StringLength(100), Required]
+        [Display(Name = "服务性质"), Required]
         public EnumServiceType Type { get; set; }
 
         [Display(Name = "年度限额（元）"), Required]

@@ -11,6 +11,9 @@ namespace Talent
     {
         #region 基础
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Banner> Banners { get; set; }
+        public DbSet<IndustryCategory> IndustryCategorys { get; set; }
+        public DbSet<ServiceCategory> ServiceCategorys { get; set; }
         #endregion
 
         #region 网站内容

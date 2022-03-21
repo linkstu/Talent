@@ -1,0 +1,20 @@
+﻿@model Talent.Base.ViewModels.ServiceCategoryVMs.ServiceCategoryVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model" label-width="120">
+	<wt:quote>@Localizer["Sys.DeleteConfirm"]</wt:quote>
+<wt:row items-per-row="ItemsPerRowEnum.One">
+<wt:display field="Entity.Name" />
+<wt:display field="Entity.Type" />
+<wt:display field="Entity.LimitedValuation" />
+<wt:display field="Entity.LimitedCount" />
+<wt:display field="Entity.Description" />
+<wt:display field="Entity.IsEnabled" />
+<wt:display field="Entity.SortIndex" />
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton theme=" ButtonThemeEnum.Warm" text="@Localizer["Sys.Delete"]"/>
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

@@ -1,0 +1,19 @@
+﻿@model Talent.Base.ViewModels.ServiceCategoryVMs.ServiceCategoryVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model" label-width="120">
+<wt:row items-per-row="ItemsPerRowEnum.One">
+<wt:textbox field="Entity.Name" />
+<wt:combobox field="Entity.Type" />
+<wt:textbox field="Entity.LimitedValuation" />
+<wt:textbox field="Entity.LimitedCount" />
+<wt:textbox field="Entity.Description" />
+<wt:switch field="Entity.IsEnabled" />
+<wt:textbox field="Entity.SortIndex" />
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
