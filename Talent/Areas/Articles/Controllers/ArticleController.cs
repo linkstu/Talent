@@ -131,6 +131,7 @@ namespace Talent.Controllers
         }
         #endregion
 
+
         #region BatchDelete
         [HttpPost]
         [ActionDescription("Sys.BatchDelete")]
