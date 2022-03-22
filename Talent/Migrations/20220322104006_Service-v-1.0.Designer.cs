@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Talent;
@@ -11,9 +12,10 @@ using Talent;
 namespace Talent.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220322104006_Service-v-1.0")]
+    partial class Servicev10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -290,134 +292,6 @@ namespace Talent.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("ServiceCategories");
-                });
-
-            modelBuilder.Entity("Talent.Models.ServiceUnit", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("AcceptanceComments")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
-                    b.Property<string>("Certificate")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("CreateBy")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<DateTime?>("CreateTime")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime?>("DateOfAcceptance")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("DateOfFound")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("DateOfRegister")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime?>("DateOfVerify")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)");
-
-                    b.Property<string>("Legal")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
-                    b.Property<string>("LegalMobile")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
-                    b.Property<Guid>("LicenseID")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Manager")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
-                    b.Property<string>("ManagerMobile")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
-                    b.Property<string>("ManagerPassword")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Telephone")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("UpdateBy")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<DateTime?>("UpdateTime")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("VerifyComments")
-                        .HasColumnType("text");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("LicenseID");
-
-                    b.ToTable("ServiceUnits");
-                });
-
-            modelBuilder.Entity("Talent.Models.ServiceUnitDocument", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("FileId")
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("ServiceUnitID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("FileId");
-
-                    b.HasIndex("ServiceUnitID");
-
-                    b.ToTable("ServiceUnitDocuments");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.ActionLog", b =>
@@ -941,36 +815,6 @@ namespace Talent.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Talent.Models.ServiceUnit", b =>
-                {
-                    b.HasOne("WalkingTec.Mvvm.Core.FileAttachment", "License")
-                        .WithMany()
-                        .HasForeignKey("LicenseID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("License");
-                });
-
-            modelBuilder.Entity("Talent.Models.ServiceUnitDocument", b =>
-                {
-                    b.HasOne("WalkingTec.Mvvm.Core.FileAttachment", "File")
-                        .WithMany()
-                        .HasForeignKey("FileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Talent.Models.ServiceUnit", "ServiceUnit")
-                        .WithMany("Documents")
-                        .HasForeignKey("ServiceUnitID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("File");
-
-                    b.Navigation("ServiceUnit");
-                });
-
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkMenu", b =>
                 {
                     b.HasOne("WalkingTec.Mvvm.Core.FrameworkMenu", "Parent")
@@ -999,11 +843,6 @@ namespace Talent.Migrations
                         .IsRequired();
 
                     b.Navigation("MenuItem");
-                });
-
-            modelBuilder.Entity("Talent.Models.ServiceUnit", b =>
-                {
-                    b.Navigation("Documents");
                 });
 
             modelBuilder.Entity("WalkingTec.Mvvm.Core.FrameworkMenu", b =>

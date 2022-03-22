@@ -1,0 +1,29 @@
+﻿@model Talent.ServiceUnits.ViewModels.ServiceUnitVMs.ServiceUnitVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form label-width="120" vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.One">
+<wt:display field="Entity.Name" />
+<wt:display field="Entity.Type" />
+<wt:display field="Entity.LicenseID" />
+<wt:display field="Entity.Certificate" />
+<wt:display field="Entity.DateOfFound" />
+<wt:display field="Entity.Telephone" />
+<wt:display field="Entity.Address" />
+<wt:display field="Entity.Legal" />
+<wt:display field="Entity.LegalMobile" />
+<wt:display field="Entity.Manager" />
+<wt:display field="Entity.ManagerMobile" />
+<wt:display field="Entity.ManagerPassword" />
+<wt:display field="Entity.Description" />
+<wt:display field="Entity.Status" />
+<wt:display field="Entity.DateOfRegister" />
+<wt:display field="Entity.AcceptanceComments" />
+<wt:display field="Entity.DateOfAcceptance" />
+<wt:display field="Entity.VerifyComments" />
+<wt:display field="Entity.DateOfVerify" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

@@ -20,6 +20,13 @@ namespace Talent
         public DbSet<ArticleCategory> ArticleCategorys { get; set; }
         #endregion
 
+        #region 服务场所
+        public DbSet<Service> Services { get; set; }
+        #endregion
+
+        #region 服务单位
+        public DbSet<ServiceUnit> ServiceUnits { get; set; }
+        #endregion
         public DbSet<FrameworkUser> FrameworkUsers { get; set; }
 
         public DataContext(CS cs)

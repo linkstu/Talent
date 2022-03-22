@@ -1,0 +1,15 @@
+﻿@model Talent.service.ViewModels.ServiceVMs.ServiceVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.One">
+<wt:combobox field="Entity.CategoryID" items="AllCategorys"/>
+<wt:textbox field="Entity.Name" />
+<wt:textbox field="Entity.Description" />
+<wt:switch field="Entity.IsEnabled" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
