@@ -1,16 +1,16 @@
-﻿@model Talent.ServiceUnits.ViewModels.ServiceUnitVMs.ServiceUnitVM
+﻿@model Talent.TalentUnits.ViewModels.TalentUnitVMs.TalentUnitVM
 @inject IStringLocalizer<Program> Localizer;
 
 <wt:form vm="@Model">
 	<wt:quote>@Localizer["Sys.DeleteConfirm"]</wt:quote>
 <wt:row items-per-row="ItemsPerRowEnum.One">
 <wt:display field="Entity.Name" />
-<wt:display field="Entity.Type" />
+<wt:display field="Entity.Certificate" />
 <wt:display field="Entity.Telephone" />
 <wt:display field="Entity.Address" />
 <wt:display field="Entity.Legal" />
 <wt:display field="Entity.Manager" />
-<wt:display field="Entity.Description" />
+<wt:display field="Entity.ManagerMobile" />
 </wt:row>
     <wt:hidden field="Entity.ID" />
     <wt:row align="AlignEnum.Right">

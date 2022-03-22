@@ -1,0 +1,25 @@
+﻿@model Talent.TalentUnits.ViewModels.TalentUnitVMs.TalentUnitVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form label-width="120" vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.One">
+<wt:textbox field="Entity.Name" />
+<wt:combobox field="Entity.CategoryID" items="AllCategorys"/>
+<wt:upload field="Entity.LicenseID" />
+<wt:textbox field="Entity.Certificate" />
+<wt:datetime field="Entity.DateOfFound" />
+<wt:textbox field="Entity.Telephone" />
+<wt:textbox field="Entity.Address" />
+<wt:textbox field="Entity.Legal" />
+<wt:textbox field="Entity.LegalMobile" />
+<wt:textbox field="Entity.Manager" />
+<wt:textbox field="Entity.ManagerMobile" />
+<wt:textbox field="Entity.ManagerPassword" />
+<wt:textbox field="Entity.Description" />
+<wt:multiupload field="Entity.Documents" upload-type="AllFiles" num-file-once="10" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
