@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using WalkingTec.Mvvm.Core;
-using WalkingTec.Mvvm.Core.Extensions;
+﻿using System.Linq;
 using Talent.Models;
+using WalkingTec.Mvvm.Core;
 
 
 namespace Talent.Base.ViewModels.BannerVMs
@@ -20,7 +15,10 @@ namespace Talent.Base.ViewModels.BannerVMs
         protected override void InitVM()
         {
             if (Entity.ID == default)
+            {
                 Entity.IsEnabled = true;
+                Entity.SortIndex = (DC.Set<Banner>().AsEnumerable().MaxBy(a => a.SortIndex)?.SortIndex ?? 0) + 1;
+            }
         }
 
         public override void DoAdd()

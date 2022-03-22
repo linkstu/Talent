@@ -28,11 +28,11 @@ namespace Talent.Base.ViewModels.BannerVMs
         protected override IEnumerable<IGridColumn<Banner_View>> InitGridHeader()
         {
             return new List<GridColumn<Banner_View>>{
-                this.MakeGridHeader(x => x.Title),
+                this.MakeGridHeader(x => x.Title, 300),
                 this.MakeGridHeader(x => x.Url),
-                this.MakeGridHeader(x => x.ImageID).SetFormat(ImageIDFormat),
-                this.MakeGridHeader(x => x.SortIndex),
-                this.MakeGridHeader(x => x.IsEnabled),
+                this.MakeGridHeader(x => x.ImageID, 120).SetFormat(ImageIDFormat),
+                this.MakeGridHeader(x => x.SortIndex, 100),
+                this.MakeGridHeader(x => x.IsEnabled, 100),
                 this.MakeGridHeaderAction(width: 200)
             };
         }

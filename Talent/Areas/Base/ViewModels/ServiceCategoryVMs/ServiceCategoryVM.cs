@@ -20,7 +20,10 @@ namespace Talent.Base.ViewModels.ServiceCategoryVMs
         protected override void InitVM()
         {
             if (Entity.ID == default)
+            {
                 Entity.IsEnabled = true;
+                Entity.SortIndex = (DC.Set<ServiceCategory>().AsEnumerable().MaxBy(a => a.SortIndex)?.SortIndex ?? 0) + 1;
+            }
         }
 
         public override void DoAdd()

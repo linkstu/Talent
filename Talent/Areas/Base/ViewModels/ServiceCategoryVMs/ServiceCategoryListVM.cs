@@ -28,13 +28,13 @@ namespace Talent.Base.ViewModels.ServiceCategoryVMs
         protected override IEnumerable<IGridColumn<ServiceCategory_View>> InitGridHeader()
         {
             return new List<GridColumn<ServiceCategory_View>>{
-                this.MakeGridHeader(x => x.Name),
-                this.MakeGridHeader(x => x.Type),
+                this.MakeGridHeader(x => x.Name, 200),
+                this.MakeGridHeader(x => x.Type, 100),
                 this.MakeGridHeader(x => x.LimitedValuation,130),
                 this.MakeGridHeader(x => x.LimitedCount,130),
                 this.MakeGridHeader(x => x.Description),
-                this.MakeGridHeader(x => x.IsEnabled,80),
-                this.MakeGridHeader(x => x.SortIndex,80),
+                this.MakeGridHeader(x => x.IsEnabled, 100),
+                this.MakeGridHeader(x => x.SortIndex,100),
                 this.MakeGridHeaderAction(width: 200)
             };
         }

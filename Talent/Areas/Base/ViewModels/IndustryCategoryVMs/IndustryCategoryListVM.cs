@@ -29,8 +29,8 @@ namespace Talent.Base.ViewModels.IndustryCategoryVMs
         {
             return new List<GridColumn<IndustryCategory_View>>{
                 this.MakeGridHeader(x => x.Category),
-                this.MakeGridHeader(x => x.IsEnabled),
-                this.MakeGridHeader(x => x.SortIndex),
+                this.MakeGridHeader(x => x.IsEnabled, 100),
+                this.MakeGridHeader(x => x.SortIndex, 100),
                 this.MakeGridHeaderAction(width: 200)
             };
         }

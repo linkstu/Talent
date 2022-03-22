@@ -20,7 +20,10 @@ namespace Talent.Base.ViewModels.IndustryCategoryVMs
         protected override void InitVM()
         {
             if (Entity.ID == default)
+            {
                 Entity.IsEnabled = true;
+                Entity.SortIndex = (DC.Set<IndustryCategory>().AsEnumerable().MaxBy(a => a.SortIndex)?.SortIndex ?? 0) + 1;
+            }
         }
 
         public override void DoAdd()
