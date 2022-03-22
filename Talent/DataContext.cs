@@ -26,6 +26,7 @@ namespace Talent
 
         #region 服务单位
         public DbSet<ServiceUnit> ServiceUnits { get; set; }
+        public DbSet<ServiceUnitDocument> ServiceUnitDocuments { get; set; }
         #endregion
         public DbSet<FrameworkUser> FrameworkUsers { get; set; }
 
