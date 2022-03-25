@@ -33,6 +33,10 @@ namespace Talent
         public DbSet<TalentUnit> TalentUnits { get; set; }
         public DbSet<TalentUnitDocument> TalentUnitDocuments { get; set; }
         #endregion
+
+
+
+
         public DbSet<FrameworkUser> FrameworkUsers { get; set; }
 
         public DataContext(CS cs)
